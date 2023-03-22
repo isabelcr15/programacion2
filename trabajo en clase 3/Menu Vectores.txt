@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int menu(){
+	
+	int option;
+	
+	printf("                                                   Menu de Vectores\n");
+	printf("\nDigite una de las 5 opciones\nOpcion 1:Leer datos\nOpcion 2:Sumar datos\nOpcion 3:Cuadrado de los datos\nOpcion 4:Promedio de los datos\nOpcion 5:Salir\n\n");
+	printf("Digite una opcion: ");
+	scanf("%d", &option);
+	
+	
+	return option;
+}
+
+int main(){
+	
+	int opt;
+	
+	do{
+		system("CLS");
+		opt = menu();
+		
+		switch(opt){
+		case 1:
+			
+			system("CLS");
+			printf("\nOpcion 1 seleccionada\n");
+			int Vector_uno[10];
+			
+			for(int i = 0; i < 10; i++){
+				printf("Digite un numero: ");
+				scanf("%d", &Vector_uno[i]);
+			}
+			break;
+		case 2:
+			
+			system("CLS");
+			printf("\nOpcion 2 seleccionada\n");
+			
+			int a;
+			a = 0;
+			
+			for(int i = 0; i < 10; i++){
+				a += Vector_uno[i];
+			}
+			
+			printf("\nLa suma de todos los numeros es: %d\n\n", a);
+			
+			break;
+		case 3:
+			
+			system("CLS");
+			printf("\nOpcion 3 seleccionada\n");
+			
+			int Vector_dos[10];
+			
+			for(int i = 0; i < 10; i++){
+				Vector_dos[i] = pow(Vector_uno[i], 2);
+				printf("\nLa potencia en la posicion %d es: %d\n\n", i, Vector_dos[i]);
+			}
+			break;
+		case 4:
+			system("CLS");
+			printf("\nOpcion 4 seleccionada\n");
+			
+			int p;
+			p = 0;
+			
+			for(int i = 0; i < 10; i++){
+				Vector_dos[i] = pow(Vector_uno[i], 2);
+			}
+			
+			for(int i = 0; i < 10; i++){
+				printf("\nEl promedio de %d mas %d es: ", Vector_uno[i], Vector_dos[i]);
+				p = (Vector_uno[i] + Vector_dos[i]) / 2;
+				printf("%d\n\n", p);
+			}
+			
+			break;
+		case 5:
+			system("CLS");
+			
+			printf("\nOpcion 5 seleccionada\n");
+			printf("\nSaliendo...\n\n");
+			
+			return 0;
+			
+			break;
+		default:
+			system("CLS");
+			
+			printf("\nLa opcion ingresada es incorrecta\n\nSaliendo...\n\n");
+			
+			return 0;
+			
+			break;
+		}
+	
+		system("PAUSE");
+	}while(opt != 4);
+	
+	return 0;
+}
